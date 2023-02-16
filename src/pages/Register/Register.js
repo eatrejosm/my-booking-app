@@ -9,7 +9,7 @@ const Register = () => {
     const navigateTo = useNavigate();
     const onFinish = async (values) => {
       try {
-          const response = await axios.post('http://127.0.0.1:5002/api/v1/users/register',values);
+          const response = await axios.post('/api/v1/users/register',values);
           if (response.data.success) {
               toast.success(response.data.message)
               toast("Redirecting to login page")
