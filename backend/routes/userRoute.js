@@ -82,7 +82,10 @@ router.post('/user-data', auth, async(req, res)=>{
             .send({
                 message:'User data fetched successfully',
                 success:true,
-                data:user
+                data:{
+                    name: user.name,
+                    email: user.email
+                }
             });
         }
     } catch (error) {
