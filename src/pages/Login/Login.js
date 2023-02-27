@@ -4,12 +4,17 @@ import { Form,Input, Button } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { useSelector, useDispatch } from 'react-redux'
+import { showLoading, hideLoading } from '../../redux/alertsSlice'
 
 const Login = () => {
+    const dispatch = useDispatch();
     const navigateTo = useNavigate();
     const onFinish = async (values) => {
       try {
+        dispatch(showLoading())
         const response = await axios.post('/api/v1/users/login',values);
+        dispatch(hideLoading())
         if (response.data.success) {
             toast.success(response.data.message)
             toast("Redirecting to home page")
@@ -19,7 +24,8 @@ const Login = () => {
             toast.error(response.data.message)
         }
       }catch (error) {
-        
+        dispatch(hideLoading())
+        toast.error("Something went wrong")
       }
     }
 

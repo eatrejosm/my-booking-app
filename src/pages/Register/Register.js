@@ -4,11 +4,16 @@ import { Form,Input, Button } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { useSelector, useDispatch } from 'react-redux'
+import { showLoading,hideLoading } from '../../redux/alertsSlice'
+
 
 const Register = () => {
+    const dispatch = useDispatch();
     const navigateTo = useNavigate();
     const onFinish = async (values) => {
       try {
+          dispatch(showLoading())
           const response = await axios.post('/api/v1/users/register',values);
           if (response.data.success) {
               toast.success(response.data.message)
@@ -18,7 +23,8 @@ const Register = () => {
               toast.error(response.data.message)
           }
       }catch (error) {
-          toast.error("Something went wrong")
+        dispatch(hideLoading())
+        toast.error("Something went wrong")
       }
     }
 
