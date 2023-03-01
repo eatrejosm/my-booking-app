@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import dbConnection from './config/dbConnection.js';
 import colors from 'colors';
-import userRoute from './routes/userRoute.js';
+import userRoutes from './routes/userRoutes.js';
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.send('API is running...');
 });
 
-app.use('/api/v1/users', userRoute);
+app.use('/api/v1/users', userRoutes);
 
 
 

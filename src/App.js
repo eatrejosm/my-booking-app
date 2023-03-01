@@ -7,6 +7,8 @@ import HomePage from './pages/HomePage/HomePage';
 import Spinner from 'react-bootstrap/Spinner';
 import { useSelector } from 'react-redux';
 import './App.css';
+import ProtectedRoute from './components/ProtectedRoute';
+import PublicRoute from './components/PublicRoute';
 
 function App() {
   const {loading} = useSelector((state) => state.alerts)
@@ -21,9 +23,19 @@ function App() {
         )}
       <Toaster position= "top-center" reverseOrder/>
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/login" element={
+          <PublicRoute>
+            <Login />
+          </PublicRoute>} />
+        <Route path="/register" element={
+          <PublicRoute>
+            <Register />
+          </PublicRoute>} />
+        <Route path="/home" element={
+          <ProtectedRoute>
+              <HomePage />
+          </ProtectedRoute>
+        } />
       </Routes> 
     </BrowserRouter>
 
