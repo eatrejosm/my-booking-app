@@ -4,7 +4,7 @@ import { Form,Input, Button } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import { useSelector, useDispatch } from 'react-redux'
+import {useDispatch } from 'react-redux'
 import { showLoading, hideLoading } from '../../redux/alertsSlice'
 
 const Login = () => {

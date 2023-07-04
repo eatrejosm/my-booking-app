@@ -2,7 +2,7 @@ import express from 'express';
 import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import {auth} from '../middleware/authMiddleware.js';
+import {authMiddleware} from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 
@@ -70,22 +70,20 @@ router.post('/login', async (req,res)=>{
     }
 })
 
-router.post('/user-data', auth, async(req, res)=>{
+router.post('/userdata-by-id', authMiddleware, async(req, res)=>{
     try {
-        const user = await User.findById({ _id: req.body.userId });
+        const user = await User.findOne({ _id: req.body.userId });
+        user.password = undefined;
         if(!user){
             return res
-                .status(200)
+                .status(200)    
                 .send({message:'User not found',success:false});
         } else {
         res.status(200)
             .send({
                 message:'User data fetched successfully',
                 success:true,
-                data:{
-                    name: user.name,
-                    email: user.email
-                }
+                data: user
             });
         }
     } catch (error) {

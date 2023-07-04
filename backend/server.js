@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 import dbConnection from './config/dbConnection.js';
 import colors from 'colors';
 import userRoutes from './routes/userRoutes.js';
+// const cors=require('cors');
+import cors from 'cors';
 
 dotenv.config();
 
@@ -11,6 +13,7 @@ dbConnection();
 const app = express();
 app.use(express.json());
 
+app.use(cors());
 app.get('/', (req, res) => {
     res.send('API is running...');
 });

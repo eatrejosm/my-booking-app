@@ -15,12 +15,24 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    isAdmin: {
+    isProfessor: {
         type: Boolean,
-        required: true,
         default: false
     },
-}, {
+    isAdmin: {
+        type: Boolean,
+        default: false
+    },
+    seenNotifications: {
+        type: Array,
+        default: [],
+    },
+    unseenNotifications: {
+        type: Array,
+        default: [],
+    },
+    }, 
+    {
     timestamps: true
 })
 

@@ -4,7 +4,7 @@ import { Form,Input, Button } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { showLoading,hideLoading } from '../../redux/alertsSlice'
 
 
@@ -16,6 +16,7 @@ const Register = () => {
           dispatch(showLoading())
           const response = await axios.post('/api/v1/users/register',values);
           if (response.data.success) {
+              dispatch(hideLoading())
               toast.success(response.data.message)
               toast("Redirecting to login page")
               navigateTo("/login")

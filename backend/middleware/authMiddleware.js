@@ -1,9 +1,9 @@
 import jwt from 'jsonwebtoken';
 
-export const auth = async (req,res,next)=>{
+export const authMiddleware = async (req,res,next)=>{
     let token
     try {
-        token = req.headers["authorization"].split(' ')[1];
+        token = req.headers["authorization"].split(" ")[1];
         const decoded = jwt.verify(token,process.env.JWT_SECRET);
         req.body.userId = decoded.id;
         next();
