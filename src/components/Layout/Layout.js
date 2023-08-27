@@ -23,9 +23,9 @@ const Layout = ({ children }) => {
       link: '/appointments',
     },
     {
-      name: 'Apply to be a professor',
+      name: 'Apply to be a student',
       icon: 'ri-user-2-line',
-      link: '/apply-professor',
+      link: '/apply-student',
     },
     {
       name: 'My profile',
@@ -45,7 +45,7 @@ const Layout = ({ children }) => {
       link: '/users',
     },
     {
-      name: 'Professors',
+      name: 'Students',
       icon: 'ri-user-2-line',
       link: '/professor',
     },
