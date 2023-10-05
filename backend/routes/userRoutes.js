@@ -3,6 +3,8 @@ import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import {authMiddleware} from '../middleware/authMiddleware.js';
+import Student from '../models/studentModel.js';
+import { message } from 'antd';
 const router = express.Router();
 
 
@@ -94,32 +96,29 @@ router.post('/userdata-by-id', authMiddleware, async(req, res)=>{
     }
 })
 
-//@desc     Register new user
-//@route    POST /api/users
-//@access   Public
-router.post('/apply-student-profile',async (req,res)=>{
-    try {
-        const userExists = await User.findOne({email:req.body.email});
-        if(userExists){
-            res
-                .status(200)
-                .send({message:'User already exists',success:false});
-        }  
-        const password = req.body.password;    
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password,salt);
-        req.body.password = hashedPassword;
-        const newUser = new User(req.body);
-        await newUser.save();
-        res
-            .status(200)
-            .send({message:'User created successfully',success:true});
-    } catch (error) {
-        console.log(error)
-        res
-            .status(500)
-            .send({message:'Something went wrong',success:false, error});    
-    }
+
+router.post('/apply-student-profile', authMiddleware, async (req,res)=>{
+try {
+    const newStudent = new Student({...req.body, status: "pending"});
+    await newStudent.save();
+    const adminUser = await User.findOne({ isAdmin: true});
+
+    const unseenNotifications = adminUser.unseenNotifications;
+    unseenNotifications.push({
+        type: "new-student-request",
+        message: `${newStudent.fullName} has applied for new student`,
+        data: {
+            studentId: newStudent._id,
+            name: newStudent.fullName,
+        },
+        onclickPath: '/admin/students'
+    })
+    await User.findByIdAndUpdate(adminUser._id, {unseenNotifications});
+
+} catch (error) {
+    console.log(error);
+    res.status(500).send({message:"Error appplying as student", success: false, error});
+}
 })
 
 export default router;

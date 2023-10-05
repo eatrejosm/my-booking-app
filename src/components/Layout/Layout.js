@@ -37,17 +37,17 @@ const Layout = ({ children }) => {
     {
       name: 'Home',
       icon: 'ri-home-line',
-      link: '/home',
+      link: '/admin/home',
     },
     {
       name: 'Users',
       icon: 'ri-file-list-line',
-      link: '/users',
+      link: '/admin/users',
     },
     {
       name: 'Students',
       icon: 'ri-user-2-line',
-      link: '/professor',
+      link: '/admin/students',
     },
   ]
 

@@ -1,12 +1,33 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout'
 import { Row, Form, Input, Col, Button } from 'antd'
+import axios from 'axios'
+import toast from 'react-hot-toast'
+import { useDispatch, useSelector } from 'react-redux'
+import { showLoading,hideLoading } from '../../redux/alertsSlice'
+import { Link, useNavigate } from 'react-router-dom'
 
 const ApplyStudent = () => {
 
-
-  const onFinish = (values) => {
-    console.log("submit values",values)
+  const dispatch = useDispatch();
+  const navigateTo = useNavigate();
+  const {user} = useSelector(state=>state.user);
+  const onFinish = async (values) => {
+    try {
+      dispatch(showLoading())
+      const response = await axios.post('/api/v1/users/register',values);
+      if (response.data.success) {
+          dispatch(hideLoading())
+          toast.success(response.data.message)
+          toast("Redirecting to login page")
+          navigateTo()
+      }else{
+          toast.error(response.data.message)
+      }
+    }catch (error) {
+      dispatch(hideLoading())
+      toast.error("Something went wrong")
+    }
   }
 
   return (
