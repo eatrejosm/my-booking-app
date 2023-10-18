@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const studentSchema = mongoose.Schema({
+const customerSchema = mongoose.Schema({
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true
@@ -30,29 +30,25 @@ const studentSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    experience: {
+    customerDetails: {
         type: String,
         required: true
     },
-    skills: {
-        type: String,
-        required: true
-    },
-    classCount: {
+    attendanceCount: {
         type: Number,
         default: 0
-    },
-    belt: {
-        type: String,
-        required: true
-    },
-    stripes: {
-        type: String,
-        required: true
     },
     date: {
         type: Date,
         default: Date.now
+    },
+    fromTime: {
+        type: String,
+        required: true
+    },
+    toTime: {
+        type: String,
+        required: true
     },
     status: {
         type: String,
@@ -66,6 +62,6 @@ const studentSchema = mongoose.Schema({
 
 
 
-const studentModel = mongoose.model('Student', studentSchema)
+const customerModel = mongoose.model('Customer', customerSchema)
 
-export default studentModel;
+export default customerModel;

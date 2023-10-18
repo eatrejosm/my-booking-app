@@ -3,7 +3,7 @@ import User from '../models/userModel.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import {authMiddleware} from '../middleware/authMiddleware.js';
-import Student from '../models/studentModel.js';
+import Customer from '../models/customerModel.js';
 import { message } from 'antd';
 const router = express.Router();
 
@@ -97,27 +97,27 @@ router.post('/userdata-by-id', authMiddleware, async(req, res)=>{
 })
 
 
-router.post('/apply-student-profile', authMiddleware, async (req,res)=>{
+router.post('/apply-customer-profile', authMiddleware, async (req,res)=>{
 try {
-    const newStudent = new Student({...req.body, status: "pending"});
-    await newStudent.save();
+    const newCustomer = new Customer({...req.body, status: "pending"});
+    await newCustomer.save();
     const adminUser = await User.findOne({ isAdmin: true});
 
     const unseenNotifications = adminUser.unseenNotifications;
     unseenNotifications.push({
-        type: "new-student-request",
-        message: `${newStudent.fullName} has applied for new student`,
+        type: "new-customer-request",
+        message: `${newCustomer.fullName} has applied for new Customer`,
         data: {
-            studentId: newStudent._id,
-            name: newStudent.fullName,
+            CustomerId: newCustomer._id,
+            name: newCustomer.fullName,
         },
-        onclickPath: '/admin/students'
+        onclickPath: '/admin/customers'
     })
     await User.findByIdAndUpdate(adminUser._id, {unseenNotifications});
 
 } catch (error) {
     console.log(error);
-    res.status(500).send({message:"Error appplying as student", success: false, error});
+    res.status(500).send({message:"Error appplying as Customer", success: false, error});
 }
 })
 

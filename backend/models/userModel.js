@@ -15,7 +15,7 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    isStudent: {
+    isCustomer: {
         type: Boolean,
         default: false
     },
