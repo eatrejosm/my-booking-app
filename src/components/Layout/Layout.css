@@ -4,7 +4,7 @@ height: 100vh;
 }
 
 .sidebar {
-    background-color: rgba(106, 0, 255, 0.738)	;
+    background-color: rgba(0, 255, 132, 0.738)	;
     border-radius: 5px;
     box-shadow: 0 0 2px gray;
     margin-right: 20px;
@@ -14,7 +14,7 @@ height: 100vh;
 }
 
 .collapsed-sidebar {
-    background-color: rgba(106, 0, 255, 0.738)	;
+    background-color: rgba(0, 255, 132, 0.738)	;
     border-radius: 5px;
     box-shadow: 0 0 2px gray;
     margin-right: 20px;
@@ -53,6 +53,7 @@ height: 100vh;
 
 .sidebar-header {
     color: white;
+    padding-left: 20%;
 }
 
 .header{
@@ -146,6 +147,15 @@ height: 100vh;
 .btn-submit {
     width: max-content;
     height: 2.5em;
+}
+
+.btn-apply {
+    background-color: #005555;
+    border-color: #005555;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+    width: max-content !important; 
   }
 
 /* mobile */

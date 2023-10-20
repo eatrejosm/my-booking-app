@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
 import PublicRoute from './components/PublicRoute';
-import ApplyStudent from './pages/ApplyStudent/ApplyStudent';
+import ApplyCustomer from './pages/ApplyCustomer/ApplyCustomer';
 
 function App() {
   const {loading} = useSelector((state) => state.alerts)
@@ -34,9 +34,9 @@ function App() {
               <HomePage />
           </ProtectedRoute>
         } />
-        <Route path="/apply-student" element={
+        <Route path="/apply-customer" element={
           <ProtectedRoute>
-              <ApplyStudent />
+              <ApplyCustomer />
           </ProtectedRoute>
         } />
       </Routes> 

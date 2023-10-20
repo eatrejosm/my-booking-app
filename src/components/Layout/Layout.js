@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './Layout.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import logoImage from '../../assets/sm.png'
+import logoImage from '../../assets/crm-logo.png'
 
 const Layout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false)
@@ -23,9 +23,9 @@ const Layout = ({ children }) => {
       link: '/appointments',
     },
     {
-      name: 'Apply to be a student',
+      name: 'Register personal data',
       icon: 'ri-user-2-line',
-      link: '/apply-student',
+      link: '/apply-customer',
     },
     {
       name: 'My profile',
@@ -45,17 +45,12 @@ const Layout = ({ children }) => {
       link: '/admin/users',
     },
     {
-      name: 'Students',
+      name: 'Customers',
       icon: 'ri-user-2-line',
-      link: '/admin/students',
+      link: '/admin/customers',
     },
   ]
 
-//   useEffect(() => {
-//     if (window.innerWidth < 768) {
-//       setCollapsed(true)
-//     }
-//   }, [])
 
   useEffect(() => {
     const userRoleSideMenu = user && user.isAdmin ? adminMenu : userMenu

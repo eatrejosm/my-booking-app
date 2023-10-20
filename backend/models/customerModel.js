@@ -38,16 +38,12 @@ const customerSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    date: {
+    currentDate: {
         type: Date,
         default: Date.now
     },
-    fromTime: {
-        type: String,
-        required: true
-    },
-    toTime: {
-        type: String,
+    timings:{
+        type: Array,
         required: true
     },
     status: {

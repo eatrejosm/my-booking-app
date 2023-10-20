@@ -114,6 +114,7 @@ try {
         onclickPath: '/admin/customers'
     })
     await User.findByIdAndUpdate(adminUser._id, {unseenNotifications});
+    res.status(200).send({success:true, message:'Customer applied succesfully'})
 
 } catch (error) {
     console.log(error);
