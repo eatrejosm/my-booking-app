@@ -1,9 +1,18 @@
-  *{
-    color: white !important;
-  }
-  .anchor:hover {
-    color: #1b6bc7 !important;
-  }
+*{
+  color: white !important;
+}
+.ant-input{
+  color: #000 !important;
+}
+.anchor:hover {
+
+  color: #1b6bc7 !important;
+}
+.email .password{
+  font-size: 1.5vh;
+}
+
+
 
 @media (max-width: 1200px) {
   .item.animated-photo{
@@ -30,15 +39,12 @@
     margin-right: 15px;
     margin-top: 10px;
   }
-  .password {
-    font-size: 20px; /* Change the size as needed */
-    /* Additional styling if necessary */
-}
   .card-title{
-    margin-top: 15px;
-    margin-left: 6em;
+   margin-top: 15px;
+    margin-left: 5.5em !important; 
     color: white !important;
     font-size: 2em !important;
+
   }
   .logo-container{
     background: linear-gradient(to right, #16FF6D, #18D2F7) !important;
@@ -49,6 +55,7 @@
   .ant-input{
     height: 74px;
     width: 25em;
+ 
     border-radius: 30px;
   }
   .ant-form-item-row{
@@ -61,6 +68,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.4em !important;
   }
   .btn.btn-primary{
     border-radius: 30px;
@@ -112,6 +120,7 @@
         .ant-input {
             height: 74px;
             width: 400px;
+            background-color: white;
             border-radius: 30px;
         }
         .btn.btn-primary {
@@ -128,7 +137,7 @@
             padding-top: 20px;
         }
         .card-title {
-            font-size: 1em !important;
+            font-size: 2em !important;
             color: #ffffff;
             display: flex;
             align-items: center;
@@ -139,6 +148,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.3em !important;
+            margin-top: -10px !important;
         }
         .logo {
             margin-left: 5.5em;
@@ -187,15 +198,16 @@
     border-radius: 30px;
     height: 74px;
     opacity: .9;
-    width: 30em;
+    width: 32em !important;
     margin-left: 3.8em;
-    margin-right: 35px;
+    margin-right: 8em;
     margin-top: 7em;
     
   }
  .ant-input{
     height: 74px;
-    width: 30em; 
+    width: 31em !important;
+    color: #000;  
     border-radius: 30px;
   }
   .ant-form-item-row{
@@ -224,6 +236,7 @@
     margin-left: 20px;
     display: flex;
     justify-content: left;
+
   }
   .anchor{
     display: flex;
