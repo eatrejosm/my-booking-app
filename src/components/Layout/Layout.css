@@ -4,13 +4,14 @@ height: 100vh;
 }
 
 .sidebar {
-    background-color: rgba(0, 255, 132, 0.738)	;
+    background: linear-gradient(to bottom, #16FF6D, #18D2F7)	;
     border-radius: 5px;
     box-shadow: 0 0 2px gray;
     margin-right: 20px;
     min-height: 100%;
     padding: 10px;
     line-height: 20px;
+    opacity: 0.7;
 }
 
 .collapsed-sidebar {

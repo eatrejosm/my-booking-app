@@ -44,28 +44,28 @@ const ApplyCustomer = () => {
               </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item required label='email' name='email' rules={[{required: true}]}>
-                <Input placeholder='email' />
+              <Form.Item required label='Email' name='email' rules={[{required: true}]}>
+                <Input placeholder='Email' />
               </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item required label='phone number' name='phonenumber' rules={[{required: true}]}>
-                <Input placeholder='phone number' />
+              <Form.Item required label='Phone number' name='phonenumber' rules={[{required: true}]}>
+                <Input placeholder='Phone number' />
               </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item required label='address' name='address' rules={[{required: true}]}>
-                <Input placeholder='address' />
+              <Form.Item required label='Address' name='address' rules={[{required: true}]}>
+                <Input placeholder='Address' />
               </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item required label='city' name='city' rules={[{required: true}]}>
-                <Input placeholder='city' />
+              <Form.Item required label='City' name='city' rules={[{required: true}]}>
+                <Input placeholder='City' />
               </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item required label='country' name='country' rules={[{required: true}]}>
-                <Input placeholder='country' />
+              <Form.Item required label='Country' name='country' rules={[{required: true}]}>
+                <Input placeholder='Country' />
               </Form.Item>
             </Col>
           </Row>
@@ -73,7 +73,7 @@ const ApplyCustomer = () => {
           <h1 className='card-title'>Additional Information</h1>
           <Row gutter={20}>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item required label='customerDetails' name='customerDetails' rules={[{required: true}]}>
+              <Form.Item required label='Customer Details' name='customerDetails' rules={[{required: true}]}>
                 <Input placeholder='Customer Details' />
               </Form.Item>
             </Col>
