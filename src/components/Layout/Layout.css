@@ -159,6 +159,14 @@ height: 100vh;
     width: max-content !important; 
   }
 
+.ant-input {
+    height: 3em;
+}
+
+sup.ant-scroll-number.ant-badge-count {
+    margin: 3px 6px;
+}
+
 /* mobile */
 
 @media (max-width: 768px) {

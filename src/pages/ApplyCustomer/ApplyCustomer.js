@@ -14,13 +14,23 @@ const ApplyCustomer = () => {
   const navigateTo = useNavigate();
   const {user} = useSelector(state=>state.user);
   const onFinish = async (values) => {
+    console.log('form values:', values);
     try {
       dispatch(showLoading())
-      const response = await axios.post('/api/v1/users/register',{...values, userId: user._id});
+      const response = await axios.post('/api/v1/users/apply-customer-profile',
+        {
+          ...values, 
+          userId: user._id
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        },
+      );
+      dispatch(hideLoading())
       if (response.data.success) {
-          dispatch(hideLoading())
           toast.success(response.data.message)
-          toast("Redirecting to login page");
           navigateTo("/home");
       }else{
           toast.error(response.data.message)
@@ -39,7 +49,7 @@ const ApplyCustomer = () => {
         <h1 className='card-title'>Personal Information</h1>
           <Row gutter={20}>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item required label='Full Name' name='fullname' rules={[{required: true}]}>
+              <Form.Item required label='Full Name' name='fullName' rules={[{required: true}]}>
                 <Input placeholder='Full Name' />
               </Form.Item>
             </Col>
@@ -78,13 +88,13 @@ const ApplyCustomer = () => {
               </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item required label='Attendance Count' name='attendanceCount' rules={[{required: true}]}>
-                <Input placeholder='Attendance Count' type='number' />
+              <Form.Item label='Current Date' name='bookingDate' rules={[{required: true, message: 'Please select the date you want to book' }]}>
+                <DatePicker />
               </Form.Item>
             </Col>
             <Col span={8} xs={24} sm={24} lg={8}> 
-              <Form.Item label='Current Date' name='currentDate' rules={[{required: true, message: 'Please select the current date' }]}>
-                <DatePicker />
+              <Form.Item label='Booked Time' name='bookedTime' rules={[{required: true}]}>
+                <TimePicker.RangePicker />
               </Form.Item>
             </Col>
           </Row>

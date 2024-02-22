@@ -3,13 +3,14 @@ import './Layout.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import logoImage from '../../assets/crm-logo.png'
+import { Badge } from 'antd';
 
 const Layout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false)
   const [sidebarMenu, setSidebarMenu] = useState([])
   const { user } = useSelector((state) => state.user)
   const currentTab = useLocation()
-  const navigate = useNavigate()
+  const navigateTo = useNavigate()
 
   const userMenu = [
     {
@@ -48,6 +49,11 @@ const Layout = ({ children }) => {
       name: 'Customers',
       icon: 'ri-user-2-line',
       link: '/admin/customers',
+    },
+    {
+      name: 'Notifications',
+      icon: 'ri-mail-add-line',
+      link: '/admin/notifications',
     },
   ]
 
@@ -91,7 +97,7 @@ const Layout = ({ children }) => {
               className={`d-flex menu-option `}
               onClick={() => {
                 localStorage.clear()
-                navigate('/login')
+                navigateTo('/login')
               }}
             >
               <i className="ri-logout-circle-line"></i>
@@ -114,9 +120,11 @@ const Layout = ({ children }) => {
             )}
 
             <div className="d-flex justify-content-end items-center">
+            <Badge count={user && user.unseenNotifications ? user.unseenNotifications.length : 0}>
               <i className="ri-notification-2-fill header-icon px-3 mt-2"></i>
+            </Badge>
               {user && user.name ? (
-                <Link className="anchor mt-2" to="/profile">
+                <Link className="anchor mx-2" to="/profile">
                   {user.name}
                 </Link>
               ) : (

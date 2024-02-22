@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const customerSchema = mongoose.Schema({
     userId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         required: true
     },
     fullName: {
@@ -24,7 +24,7 @@ const customerSchema = mongoose.Schema({
     },
     city: {
         type: String,
-        requiredz: true
+        required: true
     },
     country: {
         type: String,
@@ -38,11 +38,11 @@ const customerSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
-    currentDate: {
+    bookingDate: {
         type: Date,
         default: Date.now
     },
-    timings:{
+    bookedTime:{
         type: Array,
         required: true
     },

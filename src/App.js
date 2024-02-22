@@ -4,6 +4,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import { Toaster } from 'react-hot-toast';
 import HomePage from './pages/HomePage/HomePage';
+import Notifications from './pages/Notifications/Notifications';
 import { useSelector } from 'react-redux';
 import './App.css';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -34,10 +35,20 @@ function App() {
               <HomePage />
           </ProtectedRoute>
         } />
+        <Route path="/admin/home" element={
+          <ProtectedRoute>
+              <HomePage />
+          </ProtectedRoute>
+        } />
         <Route path="/apply-customer" element={
           <ProtectedRoute>
               <ApplyCustomer />
           </ProtectedRoute>
+        } />
+        <Route path="/admin/notifications" element={
+        <ProtectedRoute>
+          <Notifications />
+        </ProtectedRoute>
         } />
       </Routes> 
     </BrowserRouter>
