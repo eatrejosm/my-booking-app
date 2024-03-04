@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import bcrypt from 'bcryptjs'
 
 const userSchema = mongoose.Schema({
     name: {
@@ -15,7 +14,7 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    isProfessor: {
+    isCustomer: {
         type: Boolean,
         default: false
     },

@@ -1,11 +1,12 @@
 import React from 'react'
 import './Login.css'
-import { Form,Input, Button } from 'antd'
+import { Header, Form,Input, Button } from 'antd'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import {useDispatch } from 'react-redux'
 import { showLoading, hideLoading } from '../../redux/alertsSlice'
+import logoImage from '../../assets/crm-logo.png'
 
 const Login = () => {
     const dispatch = useDispatch();
@@ -30,20 +31,32 @@ const Login = () => {
     }
 
   return (
-    <div className='authentication'>
-      <div className='authentication-form card p-2'>
-        <h1 className='card-title'>Login</h1>
+    <div>  
+    <div className="logo-container-login"> 
+              <div
+                className="logo-login"
+                style={{ backgroundImage: `url(${logoImage})` }}
+              ></div>
+          </div>
+    
+    <div className='bd-container'>
+      
+    <div className='item animated-photo'> </div>
+     
+       <div className='item authentication-form p-2'>
+        <h1 className='card-title-login'>Login</h1>
         <Form layout='vertical' onFinish={onFinish}>
-          <Form.Item label="Email" name='email'>
+          <Form.Item label="Email" name='email' className='email'>
             <Input placeholder='Email' />
           </Form.Item>
-          <Form.Item label="Contraseña" name='password'>
+          <Form.Item label="Contraseña" name='password' className='password' >
             <Input placeholder='Contraseña' type='password' />
           </Form.Item>
           <Button className='btn btn-primary my-3 ' htmlType='submit'>Accesar</Button>
           <Link to='/register' className='anchor mt-2'>No tienes cuenta? Registrate!</Link>
         </Form>
       </div>
+    </div>
     </div>
   )
 }

@@ -6,6 +6,7 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useDispatch } from 'react-redux'
 import { showLoading,hideLoading } from '../../redux/alertsSlice'
+import logoImage from '../../assets/crm-logo.png'
 
 
 const Register = () => {
@@ -30,8 +31,19 @@ const Register = () => {
     }
 
   return (
+   <div>
+      <div className="logo-container-register"> 
+      <div
+        className="logo-register"
+        style={{ backgroundImage: `url(${logoImage})` }}
+      ></div>
+    </div>
+
+    <div className='bd-container'>
+
+    <div className='item animated-photo'> </div>
     <div className='authentication'>
-      <div className='authentication-form card p-2'>
+      <div className='authentication-form-register card p-2'>
         <h1 className='card-title'>Registrate</h1>
         <Form layout='vertical' onFinish={onFinish}>
           <Form.Item label="Usuario" name='name'>
@@ -47,6 +59,8 @@ const Register = () => {
           <Link to='/login' className='anchor mt-2'>Ya tienes una cuenta? Logueate</Link>
         </Form>
       </div>
+      </div>
+    </div>
     </div>
   )
 }

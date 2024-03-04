@@ -4,17 +4,18 @@ height: 100vh;
 }
 
 .sidebar {
-    background-color: rgba(106, 0, 255, 0.738)	;
+    background: linear-gradient(to bottom, #16FF6D, #18D2F7)	;
     border-radius: 5px;
     box-shadow: 0 0 2px gray;
     margin-right: 20px;
     min-height: 100%;
     padding: 10px;
     line-height: 20px;
+    opacity: 0.7;
 }
 
 .collapsed-sidebar {
-    background-color: rgba(106, 0, 255, 0.738)	;
+    background-color: rgba(0, 255, 132, 0.738)	;
     border-radius: 5px;
     box-shadow: 0 0 2px gray;
     margin-right: 20px;
@@ -53,6 +54,7 @@ height: 100vh;
 
 .sidebar-header {
     color: white;
+    padding-left: 20%;
 }
 
 .header{
@@ -68,7 +70,7 @@ height: 100vh;
 
 .header-content{
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .content {
@@ -77,6 +79,7 @@ height: 100vh;
     box-shadow: 0 0 2px gray;
     height: 88vh;
     margin-bottom: 5%;
+    padding: 20px 20px 0 20px;
 }
 
 .sidebar-menu {
@@ -126,10 +129,42 @@ height: 100vh;
     padding-left: 10px;
 }
 
+.page-title {
+    font-size: 30px;
+    color: black;
+    font-weight: bold;
+}
+
+.card-title {
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.479);
+}
+
 .items-center {
     display: flex;
     align-items: center;
     margin-right: 20px;
+}
+.btn-submit {
+    width: max-content;
+    height: 2.5em;
+}
+
+.btn-apply {
+    background-color: #005555;
+    border-color: #005555;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+    width: max-content !important; 
+  }
+
+.ant-input {
+    height: 3em;
+}
+
+sup.ant-scroll-number.ant-badge-count {
+    margin: 3px 6px;
 }
 
 /* mobile */
@@ -141,5 +176,11 @@ height: 100vh;
 
     .collapsed-sidebar {
         display: block;
+    }
+    .content {
+        height: 100vh;
+    }
+    .header-content{
+        height: 100vh;
     }
 }
